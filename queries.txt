@@ -1,0 +1,13 @@
+CALL spatial.withinDistance('EEZ',{lat:51.124799,lon:1.339989}, 10) yield node as n 
+WITH n 
+RETURN  n.name,n.bbox,n.geometry,n.entitytype
+
+
+CALL spatial.withinDistance('PORT',{lat:51.124799,lon:1.339989}, 100) yield node as n 
+WITH n 
+RETURN  n.name,n.bbox,n.geometry,n.entitytype
+
+// does not work ???
+CALL spatial.closest('PORTAREA',{lat:51.124799,lon:1.339989}, 100) yield node as n 
+
+
