@@ -15,7 +15,7 @@ import org.neo4j.gis.spatial.SpatialDatabaseService;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Result;
 import org.neo4j.graphdb.factory.GraphDatabaseFactory;
-import org.neo4j.kernel.api.exceptions.KernelException;
+import org.neo4j.internal.kernel.api.exceptions.KernelException;
 
 import com.CypherLoader;
 
@@ -79,21 +79,20 @@ public class SampleEmbeddedRepository {
 				Map<String, Object> map = result.next();
 				String name = String.valueOf(map.get("name"));
 				String geometry = String.valueOf(map.get("geometry"));
-				
-				double ar [] = (double []) map.get("bbox");
+
+				double ar[] = (double[]) map.get("bbox");
 				List<Double> bbox = new ArrayList<>();
-				for(int i = 0 ; i < ar.length ; i++) {
+				for (int i = 0; i < ar.length; i++) {
 					bbox.add(ar[i]);
 				}
 
-
 				System.out.println("---------------------------------------------------------");
 				System.out.println("name    " + name);
-				System.out.println("geometry    "+ geometry);
+				System.out.println("geometry    " + geometry);
 				System.out.println("bbox    " + bbox);
 			}
 
-			double tot = (double) now -  (double)then;
+			double tot = (double) now - (double) then;
 			System.out.println((tot / (double) NUMBER_OF_CALLS) + " ms " + recCount + " in rs");
 		} catch (RuntimeException e) {
 			e.printStackTrace();

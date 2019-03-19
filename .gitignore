@@ -1,1 +1,8 @@
 target/
+neo4j-db-650e53e2-0da8-40ed-8f5d-9a4b483c38fa/
+logs/debug.log
+.settings/org.eclipse.m2e.core.prefs
+.project
+.classpath
+store_lock
+.settings/org.eclipse.jdt.core.prefs
